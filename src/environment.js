@@ -1,8 +1,8 @@
 export const environment = {
     api: {
         identity: {
-            url: 'http://localhost:3030/api',
-            // url: 'https://tranquil-spire-38793.herokuapp.com/api',
+            // url: 'http://localhost:3030/api', // Local
+            url: 'https://vx-api-identity.herokuapp.com/api', // Development
         },
     },
 }
