@@ -3,11 +3,11 @@ import { environment } from "../../environment"
 import storage from "../../storage"
 
 const api = axios.create({
-    baseURL: environment.api.identity.url,
+    baseURL: environment.VX_API_IDENTITY,
 })
 
 const authApi = axios.create({
-    baseURL: environment.api.identity.url,
+    baseURL: environment.VX_API_IDENTITY,
 })
 
 authApi.interceptors.request.use(request => {
