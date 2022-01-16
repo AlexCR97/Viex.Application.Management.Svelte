@@ -20,7 +20,7 @@
         </div>
         {/if}
         {#if $$slots.label}
-        <p class="text-center m-0">
+        <p class="text-center m-0" style="font-size: 0.8rem">
             <slot name="label" />
         </p>
         {/if}

@@ -31,7 +31,13 @@ async function getUsersAsync() {
     return response.data
 }
 
+async function getUserByIdAsync(id) {
+    const response = await authApi.get(`/users/${id}`)
+    return response.data
+}
+
 export default {
     getTokenAsync,
+    getUserByIdAsync,
     getUsersAsync,
 }

@@ -1,11 +1,12 @@
 <script>
     import { onMount } from "svelte";
-    import api from "../../api";
+    import api from "../../../api";
     import { Spinner } from "sveltestrap";
-    import UsersList from "../../components/UsersList/UsersList.component.svelte";
-    import Header from "../../components/Header.component.svelte";
+    import UsersList from "../../../components/UsersList.component.svelte";
+    import Header from "../../../components/Header.component.svelte";
+    import { navigateTo } from "svelte-router-spa";
 
-    export let currentRoute
+    export let currentRoute;
 
     let getUsersPromise = getUsersAsync();
 
@@ -20,6 +21,11 @@
     async function onRetryClicked() {
         getUsersPromise = getUsersAsync();
     }
+
+    function onUserClicked($event) {
+        const user = $event.detail;
+        navigateTo(`/identity/users/${user._id}`);
+    }
 </script>
 
 <div>
@@ -30,12 +36,14 @@
     </Header>
 
     {#await getUsersPromise}
-        <div class="d-flex justify-content-center mb-2">
-            <Spinner type="grow" />
+        <div class="p-3">
+            <div class="d-flex justify-content-center mb-2">
+                <Spinner type="grow" />
+            </div>
+            <p class="text-center">Loading Users</p>
         </div>
-        <p class="text-center">Loading Users</p>
     {:then users}
-        <UsersList {users} />
+        <UsersList {users} on:userClicked={onUserClicked} />
     {:catch error}
         <code>{error}</code>
         <div class="d-flex justify-content-center">

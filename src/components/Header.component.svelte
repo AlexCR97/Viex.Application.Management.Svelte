@@ -3,7 +3,7 @@
     import { Icon } from "sveltestrap";
 
     function onBackClicked() {
-        window.history.back()
+        window.history.back();
     }
 </script>
 
@@ -18,7 +18,10 @@
         </button>
 
         {#if $$slots.title}
-            <p class="fw-bold m-0 ms-2">
+            <p
+                class="fw-bold m-0 ms-2"
+                style="width: 12rem; overflow-x: hidden; text-overflow: ellipsis"
+            >
                 <slot name="title" />
             </p>
         {/if}

@@ -12,11 +12,11 @@
             label: "Users",
             route: "/identity/users",
         },
-        {
-            icon: "key",
-            label: "Refresh Tokens",
-            route: "/identity/refreshTokens",
-        },
+        // {
+        //     icon: "key",
+        //     label: "Refresh Tokens",
+        //     route: "/identity/refreshTokens",
+        // },
     ];
 
     onMount(() => {
