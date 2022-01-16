@@ -1,8 +1,11 @@
 <script>
     import { onMount } from "svelte";
-    import api from "../api";
+    import api from "../../api";
     import { Spinner } from "sveltestrap";
-    import UsersList from "../components/UsersList/UsersList.component.svelte";
+    import UsersList from "../../components/UsersList/UsersList.component.svelte";
+    import Header from "../../components/Header.component.svelte";
+
+    export let currentRoute
 
     let getUsersPromise = getUsersAsync();
 
@@ -15,12 +18,16 @@
     }
 
     async function onRetryClicked() {
-        getUsersPromise = getUsersAsync()
+        getUsersPromise = getUsersAsync();
     }
 </script>
 
-<div class="p-3">
-    <h1 class="mb-4">Users Page</h1>
+<div>
+    <Header>
+        <span slot="title">
+            {currentRoute.name}
+        </span>
+    </Header>
 
     {#await getUsersPromise}
         <div class="d-flex justify-content-center mb-2">
@@ -32,8 +39,8 @@
     {:catch error}
         <code>{error}</code>
         <div class="d-flex justify-content-center">
-            <button class="btn btn-link" on:click="{onRetryClicked}">Retry</button>
+            <button class="btn btn-link" on:click={onRetryClicked}>Retry</button
+            >
         </div>
     {/await}
-
 </div>
