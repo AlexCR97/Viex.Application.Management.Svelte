@@ -6,8 +6,8 @@
   "scripts": {
     "build": "rollup -c",
     "dev": "rollup -c -w",
-    "start:spa": "sirv public --no-clear",
-    "start": "node server.js"
+    "start": "sirv public --no-clear -s",
+    "start:server": "node server.js"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^17.0.0",
@@ -25,6 +25,7 @@
     "dotenv": "^11.0.0",
     "express": "^4.17.2",
     "sirv-cli": "^2.0.0",
+    "svelte-router-spa": "^6.0.3",
     "sveltestrap": "^5.7.0"
   }
 }
