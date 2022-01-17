@@ -3,7 +3,7 @@
     import api from "../../../api";
     import { navigateTo } from "svelte-router-spa";
     import store from "../../../store";
-    import { Header } from '../../../components'
+    import { Header, UsersList } from '../../../components'
 
     export let currentRoute;
 
