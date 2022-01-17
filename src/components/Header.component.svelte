@@ -25,9 +25,5 @@
                 <slot name="title" />
             </p>
         {/if}
-
-        <div class="ms-auto">
-            <AuthenticateButton />
-        </div>
     </div>
 </header>

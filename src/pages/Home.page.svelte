@@ -1,3 +1,13 @@
+<script>
+    import { Header } from '../components'
+    export let currentRoute
+</script>
+
 <div>
-    <h1 class="text-center my-5">Home page</h1>
+
+    <Header>
+        <span slot="title">
+            {currentRoute.name}
+        </span>
+    </Header>
 </div>

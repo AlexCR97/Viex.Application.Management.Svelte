@@ -1,8 +1,8 @@
 <script>
     import { Icon, ListGroup, ListGroupItem } from "sveltestrap";
-    import Header from "../../components/Header.component.svelte";
     import { navigateTo } from "svelte-router-spa";
     import { onMount } from "svelte";
+    import { Header } from '../../components'
 
     export let currentRoute;
 

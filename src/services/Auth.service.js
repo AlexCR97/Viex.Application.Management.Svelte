@@ -11,8 +11,6 @@ async function authenticateAsync(email, password) {
     const refreshToken = response.content.refreshToken
     storage.local.accessToken.set(accessToken)
     storage.local.refreshToken.set(refreshToken)
-    localStorage.setItem('vx.identity.accessToken', accessToken)
-    localStorage.setItem('vx.identity.refreshToken', refreshToken)
 }
 
 export default {

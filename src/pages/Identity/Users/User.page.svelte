@@ -1,8 +1,8 @@
 <script>
     import { onMount } from "svelte";
-    import { Spinner } from "sveltestrap";
     import api from "../../../api";
-    import Header from "../../../components/Header.component.svelte";
+    import { Header } from "../../../components";
+    import store from "../../../store";
 
     export let currentRoute;
 
@@ -12,11 +12,11 @@
     onMount(() => {});
 
     async function loadUserAsync() {
+        store.loadingModal.open({});
         const id = currentRoute.namedParams.id;
-        console.log("id:", id);
         const response = await api.identity.getUserByIdAsync(id);
-        console.log("response:", response);
         user = response.content;
+        store.loadingModal.close();
     }
 
     function onRetryClicked() {
@@ -32,12 +32,7 @@
     </Header>
 
     <div class="p-3">
-        {#await promise}
-            <div class="d-flex justify-content-center mb-2">
-                <Spinner type="grow" />
-            </div>
-            <p class="text-center">Loading User</p>
-        {:then}
+        {#await promise then}
             <label class="mb-1">Id</label>
             <input
                 class="form-control mb-3"
